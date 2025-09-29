@@ -2,16 +2,18 @@
 
 [![senli1073](https://img.shields.io/badge/senli1073-github-blue?logo=github)](https://github.com/senli1073)
 
-He is currently a Fellow in the Department of Earth and Planetary Sciences (EPS) at Harvard University.
+He is currently an undergraduate student in the Department of Electronic and Electrical Engineering at Southern University of Science and Technology.
 
 #### Contact
 
-Email: senli[at]fas.harvard.edu
+Email: 12410313[at]mail.sustech.edu.cn
 
 #### Education
-M.E., Computer Science and Technology, China University of Mining and Technology, 2022—2025.\
-B.E., Data Science and Big Data Technology, China University of Mining and Technology, 2018—2022.
+B.E., Information Engineering, Southern University of Science and Technology, 2024—2028.
+Middle School, High School Attached to Northeast Normal University, 2018 - 2024
+Primary School, Primary School Attached to Northeast Normal University, 2012 - 2018
+
 
 #### Research Interests
-Deep Learning, Artificial Intelligence Seismology, Mine Microseismic.
+Visual-Tactile sensors
 
