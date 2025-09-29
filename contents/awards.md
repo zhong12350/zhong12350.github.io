@@ -12,6 +12,6 @@
 
 - Third-Class Principal's Scholarship of the Affiliated High School of Northeast Normal University (NENU),2019.
 
-- The Third-Generation Inheritor of the Wang-style Clapper Talk, a National Intangible Cultural Heritage (ICH)
+- The Third-Generation Inheritor of the Wang-style Clapper Talk, a National Intangible Cultural Heritage (ICH).
 
 
