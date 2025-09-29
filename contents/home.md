@@ -9,8 +9,8 @@ He is currently an undergraduate student in the Department of Electronic and Ele
 Email: 12410313[at]mail.sustech.edu.cn
 
 #### Education
-B.E., Information Engineering, Southern University of Science and Technology, 2024—now.\
-Middle School, High School Attached to Northeast Normal University, 2018 - 2024.\
+B.E., Information Engineering, Southern University of Science and Technology, 2024—now.<br>
+Middle School, High School Attached to Northeast Normal University, 2018 - 2024.<br>
 Primary School, Primary School Attached to Northeast Normal University, 2012 - 2018.
 
 
