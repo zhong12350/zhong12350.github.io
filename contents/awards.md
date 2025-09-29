@@ -1,16 +1,17 @@
+- Outstanding Student of Southern University of Science and Technology, 2025.
 
-- Outstanding Graduate Award (CUMT), 2025.
+- Third-Prize Scholarship (SUSTech.), 2025.
 
-- National Scholarship for Graduate Student, 2024.
+- Scored 99 points in the Physics subject of the New College Entrance Examination for Northeast China (Liaoning, Jilin, Heilongjiang),2024.
 
-- First-Prize Scholarship (CUMT), 2024.
+- Second Prize in the National High School Mathematics League (NHML),2023.
 
-- First-Prize Scholarship (CUMT), 2023.
+- Third Prize in the National High School Biology League (NHBL),2023.
 
-- Freshman Scholarship (CUMT), 2022.
+- Second-Class Principal's Scholarship of the Affiliated High School of Northeast Normal University (NENU),2020.
 
-- Outstanding Graduation Project Award (Jiangsu Province), 2022.
+- Third-Class Principal's Scholarship of the Affiliated High School of Northeast Normal University (NENU),2019.
 
-- First-Prize Enterprise Scholarship (CUMT), 2020.
+- The Third-Generation Inheritor of the Wang-style Clapper Talk, a National Intangible Cultural Heritage (ICH)
 
-- First-Prize Scholarship (CUMT), 2019.
+
