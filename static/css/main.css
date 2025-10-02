@@ -140,5 +140,14 @@ section .main-body{
     align-items: center;
     margin-bottom: 1.5rem; /* 文章之间的间距，适配整体 line-height */
 }
+.essay-title {
+    font-family: "Microsoft YaHei", sans-serif; /* 和参考元素字体一致 */
+    font-size: 16px; /* 和参考元素字号一致 */
+}
+
+.view-btn {
+    font-family: "Microsoft YaHei", sans-serif; /* 和参考元素字体一致 */
+    font-size: 16px; /* 和参考元素字号一致 */
+}
 
 
