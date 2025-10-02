@@ -108,5 +108,37 @@ section .main-body{
         margin: 0;
     }
 }
+/* 文章标题：黑色、无下划线（对应之前的 .essay-title 类） */
+.essay-title {
+    color: #000; /* 覆盖可能的蓝色，设为纯黑 */
+    text-decoration: none; /* 确保无下划线 */
+}
+
+/* 文章链接按钮样式（对应之前的 .essay-btn 类） */
+.essay-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem; /* 内边距，控制按钮大小 */
+    background-color: var(--h-title-color); /* 复用现有主题色，保持风格统一 */
+    color: #fff; /* 按钮文字白色 */
+    border: none;
+    border-radius: 4px; /* 圆角，柔和风格 */
+    text-decoration: none; /* 去掉链接下划线 */
+    cursor: pointer;
+    margin-left: 1rem; /* 与标题拉开距离 */
+    font-size: 1rem; /* 按钮文字大小，适配整体 */
+}
+
+    /* 按钮 hover 交互效果 */
+    .essay-btn:hover {
+        background-color: #2a38b0; /* 主题色加深，提升交互感 */
+        color: #fff; /* 确保 hover 时文字仍为白色 */
+    }
+
+/* 文章列表项布局（让标题和按钮同行对齐） */
+.essay-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem; /* 文章之间的间距，适配整体 line-height */
+}
 
 
