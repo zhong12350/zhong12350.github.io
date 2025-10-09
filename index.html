@@ -194,44 +194,90 @@
                 </h2>
             </header>
             <div class="main-body" id="photo-md">
-                <div class="row g-4">
-                    <!-- 照片1 -->
-                    <div class="col-md-4">
-                        <div class="photo-card">
-                            <img src="assets/images/photo.jpg"
-                                 alt="入党答辩"
-                                 class="img-fluid rounded-3">
-                            <div class="photo-caption">
-                                <h5>入党答辩</h5>
-                                <p><i class="bi bi-calendar me-1"></i>2025.09.20 · <i class="bi bi-geo-alt me-1"></i>南方科技大学</p>
+                <!-- 照片轮播容器 -->
+                <div class="photo-carousel-container position-relative">
+                    <!-- 左箭头按钮 -->
+                    <button class="carousel-btn carousel-btn-prev" onclick="moveSlide(-1)">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+
+                    <!-- 照片轮播轨道 -->
+                    <div class="photo-carousel-track" id="photoCarouselTrack">
+                        <!-- 照片1 -->
+                        <div class="photo-carousel-slide active">
+                            <div class="photo-card">
+                                <img src="assets/images/photo.jpg"
+                                     alt="入党答辩"
+                                     class="img-fluid rounded-3">
+                                <div class="photo-caption">
+                                    <h5>入党答辩</h5>
+                                    <p><i class="bi bi-calendar me-1"></i>2025.09.20 · <i class="bi bi-geo-alt me-1"></i>南方科技大学</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 照片2 -->
+                        <div class="photo-carousel-slide">
+                            <div class="photo-card">
+                                <img src="assets/images/photo2.jpg"
+                                     alt="吉林大学一日游"
+                                     class="img-fluid rounded-3">
+                                <div class="photo-caption">
+                                    <h5>吉林大学一日游</h5>
+                                    <p><i class="bi bi-calendar me-1"></i>2025.10.04 · <i class="bi bi-geo-alt me-1"></i>吉林大学前卫南区</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 照片3 -->
+                        <div class="photo-carousel-slide">
+                            <div class="photo-card">
+                                <img src="assets/images/photo3.jpg"
+                                     alt="东北师范大学附属中学七十五周年校庆"
+                                     class="img-fluid rounded-3">
+                                <div class="photo-caption">
+                                    <h5>东北师范大学附属中学七十五周年校庆</h5>
+                                    <p><i class="bi bi-calendar me-1"></i>2025.10.07 · <i class="bi bi-geo-alt me-1"></i>东北师范大学附属中学自由校区</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 可以继续添加更多照片 -->
+                        <!-- 照片4 -->
+                        <div class="photo-carousel-slide">
+                            <div class="photo-card">
+                                <img src="assets/images/photo4.jpg"
+                                     alt="示例照片4"
+                                     class="img-fluid rounded-3">
+                                <div class="photo-caption">
+                                    <h5>校园生活</h5>
+                                    <p><i class="bi bi-calendar me-1"></i>2025.10.10 · <i class="bi bi-geo-alt me-1"></i>校园</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 照片5 -->
+                        <div class="photo-carousel-slide">
+                            <div class="photo-card">
+                                <img src="assets/images/photo5.jpg"
+                                     alt="示例照片5"
+                                     class="img-fluid rounded-3">
+                                <div class="photo-caption">
+                                    <h5>课外活动</h5>
+                                    <p><i class="bi bi-calendar me-1"></i>2025.10.12 · <i class="bi bi-geo-alt me-1"></i>活动中心</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 照片2 -->
-                    <div class="col-md-4">
-                        <div class="photo-card">
-                            <img src="assets/images/photo2.jpg"
-                                 alt="吉林大学一日游"
-                                 class="img-fluid rounded-3">
-                            <div class="photo-caption">
-                                <h5>吉林大学一日游</h5>
-                                <p><i class="bi bi-calendar me-1"></i>2025.10.04 · <i class="bi bi-geo-alt me-1"></i>吉林大学前卫南区</p>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- 右箭头按钮 -->
+                    <button class="carousel-btn carousel-btn-next" onclick="moveSlide(1)">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
 
-                    <!-- 照片3 -->
-                    <div class="col-md-4">
-                        <div class="photo-card">
-                            <img src="assets/images/photo3.jpg"
-                                 alt="东北师范大学附属中学七十五周年校庆"
-                                 class="img-fluid rounded-3">
-                            <div class="photo-caption">
-                                <h5>东北师范大学附属中学七十五周年校庆</h5>
-                                <p><i class="bi bi-calendar me-1"></i>2025.10.07 · <i class="bi bi-geo-alt me-1"></i>东北师范大学附属中学自由校区</p>
-                            </div>
-                        </div>
+                    <!-- 轮播指示器 -->
+                    <div class="carousel-indicators" id="carouselIndicators">
+                        <!-- 指示器会通过JavaScript动态生成 -->
                     </div>
                 </div>
             </div>
@@ -239,6 +285,58 @@
     </section>
 
     <style>
+        /* 照片轮播容器样式 */
+        .photo-carousel-container {
+            overflow: hidden;
+            padding: 0 50px;
+        }
+
+        .photo-carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 20px;
+        }
+
+        .photo-carousel-slide {
+            flex: 0 0 calc(33.333% - 14px); /* 每屏显示3张照片 */
+            min-width: 0;
+        }
+
+        /* 箭头按钮样式 */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 20;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+            .carousel-btn:hover {
+                background: white;
+                transform: translateY(-50%) scale(1.1);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            }
+
+        .carousel-btn-prev {
+            left: 0;
+        }
+
+        .carousel-btn-next {
+            right: 0;
+        }
+
         /* 照片卡片样式 */
         .photo-card {
             position: relative;
@@ -299,9 +397,31 @@
             transition: color 0.3s ease;
         }
 
-        /* 标题样式 - 与ESSAYS部分保持一致 */
+        /* 轮播指示器 */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .carousel-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .carousel-indicator.active {
+                background: white;
+                transform: scale(1.2);
+            }
+
+        /* 标题样式 */
         .latest-photo-subtitle {
-            color: blue;
+            color: white;
             font-weight: bold;
             margin-bottom: 2rem;
             text-align: left;
@@ -309,6 +429,20 @@
 
         /* 响应式调整 */
         @media (max-width: 768px) {
+            .photo-carousel-slide {
+                flex: 0 0 calc(100% - 10px); /* 移动端每屏显示1张照片 */
+            }
+
+            .photo-carousel-container {
+                padding: 0 40px;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
             .photo-card img {
                 height: 220px;
             }
@@ -329,36 +463,79 @@
                 text-align: center;
             }
         }
-
-        /* 添加滚动进入动画 */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .photo-card {
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-            .photo-card:nth-child(1) {
-                animation-delay: 0.1s;
-            }
-
-            .photo-card:nth-child(2) {
-                animation-delay: 0.2s;
-            }
-
-            .photo-card:nth-child(3) {
-                animation-delay: 0.3s;
-            }
     </style>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.photo-carousel-slide');
+        const totalSlides = slides.length;
+        const track = document.getElementById('photoCarouselTrack');
+        const indicatorsContainer = document.getElementById('carouselIndicators');
+
+        // 初始化指示器
+        function initIndicators() {
+            indicatorsContainer.innerHTML = '';
+            const totalPages = Math.ceil(totalSlides / 3); // 每页3张照片
+
+            for (let i = 0; i < totalPages; i++) {
+                const indicator = document.createElement('div');
+                indicator.className = `carousel-indicator ${i === 0 ? 'active' : ''}`;
+                indicator.onclick = () => goToPage(i);
+                indicatorsContainer.appendChild(indicator);
+            }
+        }
+
+        // 移动幻灯片
+        function moveSlide(direction) {
+            const slidesPerView = window.innerWidth <= 768 ? 1 : 3;
+            const maxSlide = Math.ceil(totalSlides / slidesPerView) - 1;
+
+            currentSlide += direction;
+
+            if (currentSlide < 0) {
+                currentSlide = maxSlide;
+            } else if (currentSlide > maxSlide) {
+                currentSlide = 0;
+            }
+
+            updateCarousel();
+        }
+
+        // 跳转到指定页面
+        function goToPage(page) {
+            const slidesPerView = window.innerWidth <= 768 ? 1 : 3;
+            currentSlide = page;
+            updateCarousel();
+        }
+
+        // 更新轮播显示
+        function updateCarousel() {
+            const slidesPerView = window.innerWidth <= 768 ? 1 : 3;
+            const slideWidth = 100 / slidesPerView;
+            const translateX = -currentSlide * 100;
+
+            track.style.transform = `translateX(${translateX}%)`;
+
+            // 更新指示器
+            const indicators = document.querySelectorAll('.carousel-indicator');
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function () {
+            initIndicators();
+            updateCarousel();
+
+            // 响应窗口大小变化
+            window.addEventListener('resize', function () {
+                currentSlide = 0;
+                initIndicators();
+                updateCarousel();
+            });
+        });
+    </script>
     <!-- 最新本人照片板块 -->
     <!-- Footer-->
     <footer class="bg-bottom text-center py-5">
