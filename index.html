@@ -186,63 +186,51 @@
     </section>
     <!-- Awards -->
     <!-- 最新本人照片板块 -->
-    <section class="bg-gradient-primary-to-secondary py-5" id="latest-photo">
+    <section class="bg-gradient-primary-to-secondary mt-5 mb-5" id="latest-photo">
         <div class="container px-5">
-            <!-- 在容器内添加这个标题部分 -->
-            <div class="text-center mb-5 position-relative">
-                <h2 class="text-white display-6 fw-bold position-relative d-inline-block">
-                    LATEST PHOTO
-                    <span class="position-absolute bottom-0 start-0 end-0 bg-warning"
-                          style="height: 3px; transform: translateY(5px);"></span>
+            <header>
+                <h2 class="latest-photo-subtitle">
+                    <i class="bi bi-camera-fill"></i> LATEST PHOTO
                 </h2>
-                <p class="text-white-50 mt-3">
-                    <i class="bi bi-star-fill text-warning me-1"></i>
-                    精选个人照片
-                    <i class="bi bi-star-fill text-warning ms-1"></i>
-                </p>
-            </div>
-
-            <header class="text-center mb-5">
-                <h2 class="text-white"><i class="bi bi-images me-2"></i>近期照片</h2>
-                <p class="lead text-white-50">RECENT PHOTOS</p>
             </header>
-
-            <div class="row g-4">
-                <!-- 照片1 - 替换这里的图片链接 -->
-                <div class="col-md-4">
-                    <div class="photo-card">
-                        <img src="assets/images/photo.jpg"
-                             alt="入党答辩"
-                             class="img-fluid rounded-3">
-                        <div class="photo-caption">
-                            <h5>入党答辩</h5>
-                            <p><i class="bi bi-calendar me-1"></i>2025.09.20 · <i class="bi bi-geo-alt me-1"></i>南方科技大学</p>
+            <div class="main-body" id="photo-md">
+                <div class="row g-4">
+                    <!-- 照片1 -->
+                    <div class="col-md-4">
+                        <div class="photo-card">
+                            <img src="assets/images/photo.jpg"
+                                 alt="入党答辩"
+                                 class="img-fluid rounded-3">
+                            <div class="photo-caption">
+                                <h5>入党答辩</h5>
+                                <p><i class="bi bi-calendar me-1"></i>2025.09.20 · <i class="bi bi-geo-alt me-1"></i>南方科技大学</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- 照片2 - 替换这里的图片链接 -->
-                <div class="col-md-4">
-                    <div class="photo-card">
-                        <img src="assets/images/photo2.jpg"
-                             alt="吉林大学一日游"
-                             class="img-fluid rounded-3">
-                        <div class="photo-caption">
-                            <h5>吉林大学一日游</h5>
-                            <p><i class="bi bi-calendar me-1"></i>2025.10.04 · <i class="bi bi-geo-alt me-1"></i>吉林大学前卫南区</p>
+                    <!-- 照片2 -->
+                    <div class="col-md-4">
+                        <div class="photo-card">
+                            <img src="assets/images/photo2.jpg"
+                                 alt="吉林大学一日游"
+                                 class="img-fluid rounded-3">
+                            <div class="photo-caption">
+                                <h5>吉林大学一日游</h5>
+                                <p><i class="bi bi-calendar me-1"></i>2025.10.04 · <i class="bi bi-geo-alt me-1"></i>吉林大学前卫南区</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- 照片3 - 替换这里的图片链接 -->
-                <div class="col-md-4">
-                    <div class="photo-card">
-                        <img src="assets/images/photo3.jpg"
-                             alt="东北师范大学附属中学七十五周年校庆"
-                             class="img-fluid rounded-3">
-                        <div class="photo-caption">
-                            <h5>东北师范大学附属中学七十五周年校庆</h5>
-                            <p><i class="bi bi-calendar me-1"></i>2025.10.07 · <i class="bi bi-geo-alt me-1"></i>东北师范大学附属中学自由校区</p>
+                    <!-- 照片3 -->
+                    <div class="col-md-4">
+                        <div class="photo-card">
+                            <img src="assets/images/photo3.jpg"
+                                 alt="东北师范大学附属中学七十五周年校庆"
+                                 class="img-fluid rounded-3">
+                            <div class="photo-caption">
+                                <h5>东北师范大学附属中学七十五周年校庆</h5>
+                                <p><i class="bi bi-calendar me-1"></i>2025.10.07 · <i class="bi bi-geo-alt me-1"></i>东北师范大学附属中学自由校区</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -257,42 +245,67 @@
             overflow: hidden;
             border-radius: 0.75rem;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             background: white;
+            cursor: pointer;
         }
 
             .photo-card:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+                transform: translateY(-12px) scale(1.03);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+                z-index: 10;
             }
 
             .photo-card img {
                 width: 100%;
                 height: 280px;
                 object-fit: cover;
-                transition: transform 0.3s ease;
+                transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             }
 
             .photo-card:hover img {
-                transform: scale(1.05);
+                transform: scale(1.15);
             }
 
         .photo-caption {
             padding: 1.25rem;
             background: white;
+            transition: all 0.3s ease;
         }
 
-            .photo-caption h5 {
-                margin-bottom: 0.5rem;
-                color: #2c3e50;
-                font-weight: 600;
+        .photo-card:hover .photo-caption {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+            .photo-card:hover .photo-caption h5 {
+                color: white;
             }
 
-            .photo-caption p {
-                color: #7f8c8d;
-                font-size: 0.9rem;
-                margin-bottom: 0;
+            .photo-card:hover .photo-caption p {
+                color: rgba(255,255,255,0.9);
             }
+
+        .photo-caption h5 {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .photo-caption p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            transition: color 0.3s ease;
+        }
+
+        /* 标题样式 - 与ESSAYS部分保持一致 */
+        .latest-photo-subtitle {
+            color: white;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
 
         /* 响应式调整 */
         @media (max-width: 768px) {
@@ -303,10 +316,50 @@
             .photo-caption {
                 padding: 1rem;
             }
+
+            .photo-card:hover {
+                transform: translateY(-5px) scale(1.02);
+            }
+
+                .photo-card:hover img {
+                    transform: scale(1.08);
+                }
+
+            .latest-photo-subtitle {
+                text-align: center;
+            }
         }
+
+        /* 添加滚动进入动画 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .photo-card {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+            .photo-card:nth-child(1) {
+                animation-delay: 0.1s;
+            }
+
+            .photo-card:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+
+            .photo-card:nth-child(3) {
+                animation-delay: 0.3s;
+            }
     </style>
     <!-- 最新本人照片板块 -->
-
     <!-- Footer-->
     <footer class="bg-bottom text-center py-5">
         <div class="container px-5">
