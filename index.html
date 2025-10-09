@@ -174,7 +174,6 @@
         </div>
     </section>
     <!-- Essays  -->
-
     <!-- Awards -->
     <section class="bg-gradient-primary-to-secondary-gray mt5 md5" id="awards">
         <div class="container px-5">
@@ -186,23 +185,113 @@
         </div>
     </section>
     <!-- Awards -->
-
     <!-- 最新本人照片板块 -->
-    <section class="bg-gradient-primary-to-secondary mt-5 md-5" id="latest-photo">
+    <section class="bg-gradient-primary-to-secondary py-5" id="latest-photo">
         <div class="container px-5">
-            <header>
-                <!-- 替换为“照片”相关的 Bootstrap Icons（如 bi-camera-fill） -->
-                <h2 id="photo-subtitle"><i class="bi bi-camera-fill"></i> LATEST PHOTO</h2>
+            <header class="text-center mb-5">
+                <h2 class="text-white"><i class="bi bi-images me-2"></i>近期照片</h2>
+                <p class="lead text-white-50">RECENT PHOTOS</p>
             </header>
-            <div class="main-body" id="photo-md">
-                <!-- 照片容器 -->
-                <div class="photo-container">
-                    <!-- 替换为你的照片路径（本地或在线） -->
-                  
+
+            <div class="row g-4">
+                <!-- 照片1 - 替换这里的图片链接 -->
+                <div class="col-md-4">
+                    <div class="photo-card">
+                        <img src="assets/images/photo.jpg"
+                             alt="工作日常"
+                             class="img-fluid rounded-3">
+                        <div class="photo-caption">
+                            <h5>工作日常</h5>
+                            <p><i class="bi bi-calendar me-1"></i>2024.01.15 · <i class="bi bi-geo-alt me-1"></i>办公室</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 照片2 - 替换这里的图片链接 -->
+                <div class="col-md-4">
+                    <div class="photo-card">
+                        <img src=""
+                             alt="户外活动"
+                             class="img-fluid rounded-3">
+                        <div class="photo-caption">
+                            <h5>户外活动</h5>
+                            <p><i class="bi bi-calendar me-1"></i>2024.01.10 · <i class="bi bi-geo-alt me-1"></i>中央公园</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 照片3 - 替换这里的图片链接 -->
+                <div class="col-md-4">
+                    <div class="photo-card">
+                        <img src=""
+                             alt="旅行时光"
+                             class="img-fluid rounded-3">
+                        <div class="photo-caption">
+                            <h5>旅行时光</h5>
+                            <p><i class="bi bi-calendar me-1"></i>2024.01.05 · <i class="bi bi-geo-alt me-1"></i>杭州西湖</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <style>
+        /* 照片卡片样式 */
+        .photo-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+            .photo-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            }
+
+            .photo-card img {
+                width: 100%;
+                height: 280px;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+            }
+
+            .photo-card:hover img {
+                transform: scale(1.05);
+            }
+
+        .photo-caption {
+            padding: 1.25rem;
+            background: white;
+        }
+
+            .photo-caption h5 {
+                margin-bottom: 0.5rem;
+                color: #2c3e50;
+                font-weight: 600;
+            }
+
+            .photo-caption p {
+                color: #7f8c8d;
+                font-size: 0.9rem;
+                margin-bottom: 0;
+            }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .photo-card img {
+                height: 220px;
+            }
+
+            .photo-caption {
+                padding: 1rem;
+            }
+        }
+    </style>
+    <!-- 最新本人照片板块 -->
 
     <!-- Footer-->
     <footer class="bg-bottom text-center py-5">
