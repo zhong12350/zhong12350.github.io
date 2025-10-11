@@ -150,4 +150,69 @@ section .main-body{
     font-size: 16px; /* 和参考元素字号一致 */
 }
 
+/* 模仿 Essays 专栏的样式 */
+.bg-gradient-primary-to-secondary { /* 假设这是您 Essays 专栏背景的类 */
+    /* 复制 Essays 专栏的背景样式 */
+}
+
+#videos .container {
+    padding: 20px 15px; /* 根据实际情况调整 */
+}
+
+#videos header {
+    margin-bottom: 20px; /* 根据实际情况调整 */
+}
+
+.videos-subtitle {
+    font-size: 1.8rem; /* 根据实际情况调整 */
+    color: #333; /* 或者 Essays 专栏的标题颜色 */
+    font-weight: bold;
+    margin-bottom: 15px; /* 根据实际情况调整 */
+}
+
+    .videos-subtitle i {
+        margin-right: 10px; /* 图标与文字之间的间距 */
+        color: #007bff; /* 或者 Essays 专栏图标的颜色 */
+    }
+
+#videos-md {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* 视频项之间的间距 */
+}
+
+.video-item {
+    display: flex;
+    justify-content: space-between; /* 标题和按钮靠边 */
+    align-items: center;
+    padding: 15px; /* 视频项内边距 */
+    background-color: #fff; /* 视频项背景色，可根据 Essays 调整 */
+    border-radius: 8px; /* 圆角 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影，可根据 Essays 调整 */
+}
+
+.video-title {
+    font-size: 1.1rem;
+    color: #555; /* 标题颜色 */
+    flex-grow: 1; /* 允许标题占据可用空间 */
+    margin-right: 15px; /* 标题与按钮之间的间距 */
+}
+
+.video-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #007bff; /* 按钮背景色，与 Essays 保持一致 */
+    color: #fff !important; /* 按钮文字颜色，使用 !important 防止被全局覆盖 */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+    .video-btn:hover {
+        background-color: #0056b3; /* 悬停时的颜色 */
+    }
+
+/* 如果 Essays 专栏有特殊的响应式布局，请也为 videos 专栏添加 */
+
 
