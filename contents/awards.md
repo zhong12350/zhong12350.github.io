@@ -1,6 +1,6 @@
-- Outstanding Student of Southern University of Science and Technology, 2025.
+- Outstanding Student of Southern University of Science and Technology（Rank Top 10%）, 2025.
 
-- Third-Prize Scholarship (SUSTech.), 2025.
+- Third-Prize Scholarship (SUSTech.)（Top 16%）, 2025.
 
 - Scored 99 points in the Physics subject of the New College Entrance Examination for Northeast China (Liaoning, Jilin, Heilongjiang),2024.
 
