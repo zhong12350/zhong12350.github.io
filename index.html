@@ -204,30 +204,30 @@
             </header>
 
             <div class="main-body" id="social-works-md"></div>
-        <!-- 局部覆盖样式：将标题颜色改为深色以在浅背景上可见 -->
-        <style>
-            /* 优先级使用 id 来覆盖 .latest-photo-subtitle 中的 color: white */
-            #social-works-subtitle {
-                color: #2c3e50; /* 深蓝灰色，便于在浅背景上阅读 */
-                text-align: left;
-            }
-
-            /* 如果该区块背景是深色，再用媒体查询或更具体选择器调整为白色 */
-            @media (prefers-color-scheme: dark) {
+            <!-- 局部覆盖样式：将标题颜色改为蓝色以在浅背景上可见，和其他栏目保持一致 -->
+            <style>
+                /* 优先级使用 id 来覆盖 .latest-photo-subtitle 中的 color 值 */
                 #social-works-subtitle {
-                    color: white;
+                    color: #2c6fb5; /* 统一蓝色，和 Latest Photo 保持一致 */
+                    text-align: left;
                 }
-            }
-        </style>
+
+                /* 如果该区块背景是深色，再用媒体查询或更具体选择器调整为白色 */
+                @media (prefers-color-scheme: dark) {
+                    #social-works-subtitle {
+                        color: white;
+                    }
+                }
+            </style>
     </section>list">
-                <div class="social-works__item">
-                    <span class="social-works__title">Science Outreach Lecturer, SUSTech Affiliated Primary School</span>
-                </div>
-                <div class="social-works__item">
-                    <span class="social-works__title">Deputy Head, Jilin Admissions Team, Southern University of Science and Technology</span>
-                </div>
-            </div>
-        </div>
+    <div class="social-works__item">
+        <span class="social-works__title">Science Outreach Lecturer, SUSTech Affiliated Primary School</span>
+    </div>
+    <div class="social-works__item">
+        <span class="social-works__title">Deputy Head, Jilin Admissions Team, Southern University of Science and Technology</span>
+    </div>
+    </div>
+    </div>
     </section>
     <!-- Social Works -->
     <!-- 最新本人照片板块 -->
@@ -465,7 +465,7 @@
 
         /* 标题样式 */
         .latest-photo-subtitle {
-            color: white;
+            color: #2c6fb5; /* 改为蓝色，和 Social Works 保持一致 */
             font-weight: bold;
             margin-bottom: 2rem;
             text-align: left;
