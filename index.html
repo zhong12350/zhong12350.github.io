@@ -184,47 +184,25 @@
 
         </div>
     </section>
-    <!-- Awards -->
-    <!--
-    计划（伪代码，详细）：
-    1. 问题：标题看不见，原因是使用了 .latest-photo-subtitle，其在样式中被设置为 color: white，导致白色文字在浅色/白色背景上不可见。
-    2. 解决思路：
-       a. 为 social-works 区块的标题增加一个更具体的选择器或额外类，以覆盖全局的 white 颜色。
-       b. 添加覆盖样式（优先级更高的选择器或在该区块内内联样式），设定深色（例如 #2c3e50），保证在浅色背景上可见。
-       c. 保持原有类以复用其他样式（如字号、加粗），只覆盖颜色属性。
-    3. 实施：在 social-works 区块中对 h2 增加 id 已有（#social-works-subtitle），添加局部 <style>（或在全局样式中添加）覆盖 color 属性。
-    4. 验证：刷新页面并在不同屏幕宽度下确认标题可见且样式一致。
-    -->
 
-    <section class="bg-gradient-primary-to-secondary mt5 md5" id="social-works">
+    <!-- Social Works -->
+    <section class="bg-gradient-primary-to-secondary mt-5 mb-5" id="social-works">
         <div class="container px-5">
             <header>
-                <!-- 保留 latest-photo-subtitle 的排版样式，同时使用 id 选择器覆盖颜色 -->
-                <h2 id="social-works-subtitle" class="latest-photo-subtitle"><i class="bi bi-award-fill"></i> Social Works</h2>
+                <h2 class="social-works-subtitle">
+                    <i class="bi bi-people-fill"></i> SOCIAL WORKS
+                </h2>
             </header>
-
-            <div class="main-body" id="social-works-md"></div>
-        <!-- 局部覆盖样式：将标题颜色改为深色以在浅背景上可见 -->
-        <style>
-            /* 优先级使用 id 来覆盖 .latest-photo-subtitle 中的 color: white */
-            #social-works-subtitle {
-                color: #2c3e50; /* 深蓝灰色，便于在浅背景上阅读 */
-                text-align: left;
-            }
-
-            /* 如果该区块背景是深色，再用媒体查询或更具体选择器调整为白色 */
-            @media (prefers-color-scheme: dark) {
-                #social-works-subtitle {
-                    color: white;
-                }
-            }
-        </style>
-    </section>list">
-                <div class="social-works__item">
-                    <span class="social-works__title">Science Outreach Lecturer, SUSTech Affiliated Primary School</span>
+            <div class="main-body" id="social-works-md">
+                <!-- 第一项社会活动 -->
+                <div class="social-work-item">
+                    <span class="social-work-title">Vice Team Leader, Jilin Province Admissions Team, SUSTech.(2024-2025)</span>
+                    <a href="#" class="social-work-btn" target="_blank">view</a>
                 </div>
-                <div class="social-works__item">
-                    <span class="social-works__title">Deputy Head, Jilin Admissions Team, Southern University of Science and Technology</span>
+                <!-- 第二项社会活动 -->
+                <div class="social-work-item">
+                    <span class="social-work-title">Science Popularization Lecturer, SUSTech Affiliated Primary School(2025.4)</span>
+                    <a href="#" class="social-work-btn" target="_blank">view</a>
                 </div>
             </div>
         </div>
