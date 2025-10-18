@@ -27,6 +27,144 @@
     <link type="text/css" href="static/css/styles.css" rel="stylesheet" />
     <link type="text/css" href="static/css/main.css" rel="stylesheet" />
 
+    <!-- 全局统一字体与配色（覆盖优先级高，确保一致性） -->
+    <style>
+        :root {
+            --main-color: #2c3e50; /* 主要文本颜色（深蓝灰，舒适可读） */
+            --accent-color: #2c6fb5; /* 链接及强调色 */
+            --base-font-size: 16px; /* 基础字号 */
+            --heading-size: 1.75rem; /* h2 标题字号 */
+            --subheading-size: 1rem; /* 小标题字号 */
+            --line-height: 1.45;
+            --font-family: "Mulish", "Newsreader", "Kanit", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        /* 基础文本 */
+        html, body {
+            font-family: var(--font-family);
+            font-size: var(--base-font-size);
+            color: var(--main-color);
+            line-height: var(--line-height);
+        }
+
+        /* 链接与按钮统一颜色（保留可见性） */
+        a, a:visited {
+            color: var(--accent-color) !important;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        /* 标题统一样式 */
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--main-color) !important;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: var(--heading-size) !important;
+        }
+
+        h5 {
+            font-size: var(--subheading-size) !important;
+        }
+
+        /* 常用组件统一字体大小与颜色 */
+        .navbar-brand,
+        .nav-link,
+        .main-body,
+        .essay-title,
+        .video-title,
+        .social-works__title,
+        .photo-caption h5,
+        .photo-caption p,
+        #top-section-bg-text,
+        .latest-photo-subtitle,
+        .essays-subtitle,
+        .videos-subtitle,
+        #publications-subtitle,
+        #awards-subtitle,
+        #social-works-subtitle {
+            color: var(--main-color) !important;
+            font-size: var(--base-font-size) !important;
+        }
+
+        /* 保持 subtitle 的排版但颜色一致 */
+        .latest-photo-subtitle,
+        .essays-subtitle,
+        .videos-subtitle {
+            font-weight: 700;
+            font-size: var(--heading-size);
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        /* 导航链接视觉调整 */
+        .nav-link {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--main-color) !important;
+        }
+
+        /* 卡片与轮播里文字 */
+        .photo-caption {
+            padding: 1.25rem;
+            background: white;
+        }
+
+            .photo-caption h5 {
+                margin-bottom: 0.5rem;
+                color: var(--main-color) !important;
+                font-weight: 600;
+            }
+
+            .photo-caption p {
+                color: var(--main-color) !important;
+                opacity: 0.85;
+                margin-bottom: 0;
+                font-size: 0.95rem;
+            }
+
+        /* 悬停时保留对比（图片卡片的悬停效果仍然显眼） */
+        .photo-card:hover .photo-caption {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+            .photo-card:hover .photo-caption h5,
+            .photo-card:hover .photo-caption p {
+                color: #ffffff !important;
+                opacity: 1;
+            }
+
+        /* 指示器与按钮颜色调整以匹配整体风格 */
+        .carousel-btn {
+            background: rgba(255,255,255,0.95);
+            color: var(--main-color);
+            border: none;
+        }
+
+        .carousel-indicator {
+            background: rgba(44,62,80,0.25);
+        }
+
+            .carousel-indicator.active {
+                background: var(--accent-color);
+                transform: scale(1.15);
+            }
+
+        /* 响应式小调整 */
+        @media (max-width: 768px) {
+            .latest-photo-subtitle {
+                text-align: center;
+            }
+        }
+    </style>
+
     <!-- Bootstrap core JS-->
     <script type="text/javascript" src="static/js/bootstrap.bundle.min.js"></script>
 
@@ -185,49 +323,22 @@
         </div>
     </section>
     <!-- Awards -->
-    <!--
-    计划（伪代码，详细）：
-    1. 问题：标题看不见，原因是使用了 .latest-photo-subtitle，其在样式中被设置为 color: white，导致白色文字在浅色/白色背景上不可见。
-    2. 解决思路：
-       a. 为 social-works 区块的标题增加一个更具体的选择器或额外类，以覆盖全局的 white 颜色。
-       b. 添加覆盖样式（优先级更高的选择器或在该区块内内联样式），设定深色（例如 #2c3e50），保证在浅色背景上可见。
-       c. 保持原有类以复用其他样式（如字号、加粗），只覆盖颜色属性。
-    3. 实施：在 social-works 区块中对 h2 增加 id 已有（#social-works-subtitle），添加局部 <style>（或在全局样式中添加）覆盖 color 属性。
-    4. 验证：刷新页面并在不同屏幕宽度下确认标题可见且样式一致。
-    -->
-
+    <!-- Social Works -->
     <section class="bg-gradient-primary-to-secondary mt5 md5" id="social-works">
         <div class="container px-5">
             <header>
-                <!-- 保留 latest-photo-subtitle 的排版样式，同时使用 id 选择器覆盖颜色 -->
                 <h2 id="social-works-subtitle" class="latest-photo-subtitle"><i class="bi bi-award-fill"></i> Social Works</h2>
             </header>
 
-            <div class="main-body" id="social-works-md"></div>
-            <!-- 局部覆盖样式：将标题颜色改为蓝色以在浅背景上可见，和其他栏目保持一致 -->
-            <style>
-                /* 优先级使用 id 来覆盖 .latest-photo-subtitle 中的 color 值 */
-                #social-works-subtitle {
-                    color: #2c6fb5; /* 统一蓝色，和 Latest Photo 保持一致 */
-                    text-align: left;
-                }
-
-                /* 如果该区块背景是深色，再用媒体查询或更具体选择器调整为白色 */
-                @media (prefers-color-scheme: dark) {
-                    #social-works-subtitle {
-                        color: white;
-                    }
-                }
-            </style>
-    </section>list">
-    <div class="social-works__item">
-        <span class="social-works__title">Science Outreach Lecturer, SUSTech Affiliated Primary School</span>
-    </div>
-    <div class="social-works__item">
-        <span class="social-works__title">Deputy Head, Jilin Admissions Team, Southern University of Science and Technology</span>
-    </div>
-    </div>
-    </div>
+            <div class="main-body" id="social-works-md">
+                <div class="social-works__item">
+                    <span class="social-works__title">Science Outreach Lecturer, SUSTech Affiliated Primary School</span>
+                </div>
+                <div class="social-works__item">
+                    <span class="social-works__title">Deputy Head, Jilin Admissions Team, Southern University of Science and Technology</span>
+                </div>
+            </div>
+        </div>
     </section>
     <!-- Social Works -->
     <!-- 最新本人照片板块 -->
@@ -329,7 +440,7 @@
     </section>
 
     <style>
-        /* 照片轮播容器样式 */
+        /* 照片轮播容器已有样式保留，交互样式不变（仅小幅调整以匹配统一字体） */
         .photo-carousel-container {
             overflow: hidden;
             padding: 0 50px;
@@ -342,11 +453,33 @@
         }
 
         .photo-carousel-slide {
-            flex: 0 0 calc(33.333% - 14px); /* 每屏显示3张照片 */
+            flex: 0 0 calc(33.333% - 14px);
             min-width: 0;
         }
 
-        /* 箭头按钮样式 */
+        .photo-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: white;
+            cursor: pointer;
+        }
+
+            .photo-card img {
+                width: 100%;
+                height: 280px;
+                object-fit: cover;
+                transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            }
+
+            .photo-card:hover {
+                transform: translateY(-12px) scale(1.03);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+                z-index: 10;
+            }
+
         .carousel-btn {
             position: absolute;
             top: 50%;
@@ -360,18 +493,11 @@
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            color: #333;
             cursor: pointer;
             transition: all 0.3s ease;
             z-index: 20;
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
-
-            .carousel-btn:hover {
-                background: white;
-                transform: translateY(-50%) scale(1.1);
-                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            }
 
         .carousel-btn-prev {
             left: 0;
@@ -381,67 +507,6 @@
             right: 0;
         }
 
-        /* 照片卡片样式 */
-        .photo-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            background: white;
-            cursor: pointer;
-        }
-
-            .photo-card:hover {
-                transform: translateY(-12px) scale(1.03);
-                box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-                z-index: 10;
-            }
-
-            .photo-card img {
-                width: 100%;
-                height: 280px;
-                object-fit: cover;
-                transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            }
-
-            .photo-card:hover img {
-                transform: scale(1.15);
-            }
-
-        .photo-caption {
-            padding: 1.25rem;
-            background: white;
-            transition: all 0.3s ease;
-        }
-
-        .photo-card:hover .photo-caption {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-            .photo-card:hover .photo-caption h5 {
-                color: white;
-            }
-
-            .photo-card:hover .photo-caption p {
-                color: rgba(255,255,255,0.9);
-            }
-
-        .photo-caption h5 {
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .photo-caption p {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            margin-bottom: 0;
-            transition: color 0.3s ease;
-        }
-
-        /* 轮播指示器 */
         .carousel-indicators {
             display: flex;
             justify-content: center;
@@ -463,19 +528,9 @@
                 transform: scale(1.2);
             }
 
-        /* 标题样式 */
-        .latest-photo-subtitle {
-            color: #2c6fb5; /* 改为蓝色，和 Social Works 保持一致 */
-            font-weight: bold;
-            margin-bottom: 2rem;
-            text-align: left;
-            font-size: 1.75rem; /* 增大字号以与前面保持一致 */
-        }
-
-        /* 响应式调整 */
         @media (max-width: 768px) {
             .photo-carousel-slide {
-                flex: 0 0 calc(100% - 10px); /* 移动端每屏显示1张照片 */
+                flex: 0 0 calc(100% - 10px);
             }
 
             .photo-carousel-container {
