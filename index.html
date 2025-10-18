@@ -17,12 +17,11 @@
     <!-- Google fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap"
-        rel="stylesheet" />
+          rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap"
+          rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap"
-        rel="stylesheet" />
+          rel="stylesheet" />
 
     <!-- Core theme CSS (includes Bootstrap)-->
     <link type="text/css" href="static/css/styles.css" rel="stylesheet" />
@@ -33,7 +32,7 @@
 
     <!-- For Compatability -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    
+
     <!-- Markdown -->
     <script type="text/javascript" src="static/js/marked.min.js"></script>
 
@@ -61,8 +60,6 @@
                 useLabelIds: true,         // use label name rather than tag for ids
                 maxMacros: 10000,          // maximum number of macro substitutions per expression
                 maxBuffer: 5 * 1024,       // maximum size for the internal TeX string (5K)
-                // baseURL:                   // URL for use with links to tags (when there is a <base> tag in effect)
-                // (document.getElementsByTagName('base').length === 0) ? '' : String(document.location).replace(/#.*$/, ''),
                 formatError:               // function called when TeX syntax errors occur
                     (jax, err) => jax.formatError(err)
             }
@@ -70,7 +67,7 @@
     </script>
     <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
     <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
+
     <!-- Core JS-->
     <script type="text/javascript" src="static/js/scripts.js"></script>
     <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
@@ -177,619 +174,37 @@
         </div>
     </section>
     <!-- Essays  -->
-    <!--
-    计划（伪代码，中文详述）：
-    1. 目标：将 Social Works 部分的标题字号放大，与页面前面其他章节标题保持一致。
-    2. 方法：
-       a. 给 Social Works 的 h2 元素添加一个与其他已样式化标题相同的类（比如 latest-photo-subtitle）。
-       b. 在页面已有的样式块中，为 .latest-photo-subtitle 增加 font-size 属性，设置合适的字号（例如 1.75rem），以便全站一致。
-       c. 保持响应式规则：现有的媒体查询会在小屏幕下把标题居中，保持该行为不变。
-    3. 实施步骤：
-       - 修改对应的 h2 标签，添加 class="latest-photo-subtitle"。
-       - 在已有的 <style> 中找到 .latest-photo-subtitle 规则，添加 font-size: 1.75rem;（如已存在则更新）。
-    4. 验证：
-       - 在桌面宽度下检查 Social Works 标题字号是否增大并与其他章节一致。
-       - 在移动端（<=768px）检查标题是否仍然居中且不会溢出。
-    -->
-
-    <!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Academic Webpage" />
-        <meta name="author" content="senli1073" />
-        <title id="title"></title>
-
-        <!-- Icon -->
-        <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
-
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-
-        <!-- Google fonts-->
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap"
-            rel="stylesheet" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap"
-            rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap"
-            rel="stylesheet" />
-
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link type="text/css" href="static/css/styles.css" rel="stylesheet" />
-        <link type="text/css" href="static/css/main.css" rel="stylesheet" />
-
-        <!-- Bootstrap core JS-->
-        <script type="text/javascript" src="static/js/bootstrap.bundle.min.js"></script>
-
-        <!-- For Compatability -->
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        
-        <!-- Markdown -->
-        <script type="text/javascript" src="static/js/marked.min.js"></script>
-
-        <!-- Mathematics -->
-        <script>
-            // See https://docs.mathjax.org/en/latest/index.html for more details.
-            MathJax = {
-                tex: {
-                    packages: {},              // extensions to use
-                    inlineMath: [              // start/end delimiter pairs for in-line math
-                        ['$', '$'],
-                        ['\\(', '\\)']
-                    ],
-                    displayMath: [             // start/end delimiter pairs for display math
-                        ['$$', '$$'],
-                        ['\\[', '\\]']
-                    ],
-                    processEscapes: false,      // use \$ to produce a literal dollar sign
-                    processEnvironments: true, // process \begin{xxx}...\end{xxx} outside math mode
-                    processRefs: true,         // process \ref{...} outside of math mode
-                    digits: /^(?:[0-9]+(?:\{,\}[0-9]{3})*(?:\.[0-9]*)?|\.[0-9]+)/,    // pattern for recognizing numbers
-                    tags: 'all',              // or 'ams' or 'all'
-                    tagSide: 'right',          // side for \tag macros
-                    tagIndent: '0.8em',        // amount to indent tags
-                    useLabelIds: true,         // use label name rather than tag for ids
-                    maxMacros: 10000,          // maximum number of macro substitutions per expression
-                    maxBuffer: 5 * 1024,       // maximum size for the internal TeX string (5K)
-                    // baseURL:                   // URL for use with links to tags (when there is a <base> tag in effect)
-                    // (document.getElementsByTagName('base').length === 0) ? '' : String(document.location).replace(/#.*$/, ''),
-                    formatError:               // function called when TeX syntax errors occur
-                        (jax, err) => jax.formatError(err)
-                }
-            };
-        </script>
-        <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-        <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-        
-        <!-- Core JS-->
-        <script type="text/javascript" src="static/js/scripts.js"></script>
-        <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
-
-    </head>
-
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="header navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
-            <div class="container px-5">
-                <a id="page-top-title" class="navbar-brand fw-bold" href="#page-top"></a>
-                <!-- <a href="#page-top"><img src="static/assets/img/CUMT_LOGO.svg" style="width: 11rem;"></a> -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    MENU
-                    <i class="bi-list"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link me-lg-3" href="#page-top">HOME</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link me-lg-3" href="#publications">PUBLICATIONS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link me-lg-3" href="#essays">Essays</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#latest-photo">LATEST PHOTO</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link me-lg-3" href="#awards">AWARDS</a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Top Section -->
-        <section class="top-section" style="background-image: url('static/assets/img/background.jpeg');">
-            <div class="top-section-content">
-                <div class="container px-5">
-                    <h2 id="top-section-bg-text" class="text-white display-3 lh-1 font-alt"></h2>
-                </div>
-            </div>
-        </section>
-        <!-- Top Section -->
-        <!-- Photo -->
+    <!-- Awards -->
+    <section class="bg-gradient-primary-to-secondary-gray mt5 md5" id="awards">
         <div class="container px-5">
-            <div id="avatar">
-                <img class="shadow" src="static/assets/img/photo.jpg">
+            <header>
+                <h2 id="awards-subtitle"><i class="bi bi-award-fill"></i>AWARDS </h2>
+            </header>
+            <div class="main-body" id="awards-md"></div>
+
+        </div>
+    </section>
+    <!-- Awards -->
+    <!-- Social Works -->
+    <section class="bg-gradient-primary-to-secondary mt5 md5" id="social-works">
+        <div class="container px-5">
+            <header>
+                <h2 id="social-works-subtitle" class="latest-photo-subtitle"><i class="bi bi-award-fill"></i> Social Works</h2>
+            </header>
+
+            <div class="main-body" id="social-works-md"></div>
+
+            <div class="social-works__list">
+                <div class="social-works__item">
+                    <span class="social-works__title">Science Outreach Lecturer, SUSTech Affiliated Primary School</span>
+                </div>
+                <div class="social-works__item">
+                    <span class="social-works__title">Deputy Head, Jilin Admissions Team, Southern University of Science and Technology</span>
+                </div>
             </div>
         </div>
-        <!-- Photo -->
-        <!-- Home -->
-        <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="home">
-            <div class="container px-5">
-                <header>
-                    <h2 id="home-subtitle"> </h2>
-                    <!-- <span class="bi bi-list"></span> -->
-                </header>
-                <div class="main-body" id="home-md"></div>
-            </div>
-        </section>
-        <!-- Home -->
-        <!-- Publications -->
-        <section class="bg-gradient-primary-to-secondary-gray mt5 md5" id="publications">
-            <div class="container px-5">
-                <header>
-                    <h2 id="publications-subtitle"><i class="bi bi-file-text-fill"></i>&nbsp;PUBLICATIONS</h2>
-                </header>
-                <div class="main-body" id="publications-md"></div>
-
-            </div>
-        </section>
-        <!-- Publications  -->
-        <!-- Essays -->
-        <section class="bg-gradient-primary-to-secondary mt-5 mb-5" id="essays">
-            <div class="container px-5">
-                <header>
-                    <h2 class="essays-subtitle">
-                        <i class="bi bi-file-text-fill"></i> ESSAYS
-                    </h2>
-                </header>
-                <div class="main-body" id="essays-md">
-                    <!-- 第一篇文章 -->
-                    <div class="essay-item">
-                        <span class="essay-title">南方科技大学在人才体制机制改革中的实践与探索</span>
-                        <a href="https://mp.weixin.qq.com/s/uY51jHHqWiMn3meMQ_faUg" class="essay-btn" target="_blank">view</a>
-                    </div>
-                    <!-- 第二篇文章 -->
-                    <div class="essay-item">
-                        <span class="essay-title">第五次反“围剿”期间军事决策执行困境的再审视</span>
-                        <a href="https://mp.weixin.qq.com/s/nK2lfCXGjx99G7jAZNmMjw" class="essay-btn" target="_blank">view</a>
-                    </div>
-                    <!-- 第三篇文章 -->
-                    <div class="essay-item">
-                        <span class="essay-title">对话付云皓老师：不抵触，有意义，不后悔</span>
-                        <a href="https://mp.weixin.qq.com/s/wjSSZl6AMpctP1bC-3uPXg" class="essay-btn" target="_blank">view</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Essays  -->
-        <!-- Awards -->
-        <section class="bg-gradient-primary-to-secondary-gray mt5 md5" id="awards">
-            <div class="container px-5">
-                <header>
-                    <h2 id="awards-subtitle"><i class="bi bi-award-fill"></i>AWARDS </h2>
-                </header>
-                <div class="main-body" id="awards-md"></div>
-
-            </div>
-        </section>
-        <!-- Awards -->
-        <!-- Social Works -->
-        <section class="bg-gradient-primary-to-secondary mt5 md5" id="social-works">
-            <div class="container px-5">
-                <header>
-                    <h2 id="social-works-subtitle" class="latest-photo-subtitle"><i class="bi bi-award-fill"></i> Social Works</h2>
-                </header>
-
-                <div class="main-body" id="social-works-md"></div>
-
-                <div class="social-works__list">
-                    <div class="social-works__item">
-                        <span class="social-works__title">Science Outreach Lecturer, SUSTech Affiliated Primary School</span>
-                    </div>
-                    <div class="social-works__item">
-                        <span class="social-works__title">Deputy Head, Jilin Admissions Team, Southern University of Science and Technology</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Social Works -->
-        <!-- 最新本人照片板块 -->
-        <section class="bg-gradient-primary-to-secondary mt-5 mb-5" id="latest-photo">
-            <div class="container px-5">
-                <header>
-                    <h2 class="latest-photo-subtitle">
-                        <i class="bi bi-camera-fill"></i> LATEST PHOTO
-                    </h2>
-                </header>
-                <div class="main-body" id="photo-md">
-                    <!-- 照片轮播容器 -->
-                    <div class="photo-carousel-container position-relative">
-                        <!-- 左箭头按钮 -->
-                        <button class="carousel-btn carousel-btn-prev" onclick="moveSlide(-1)">
-                            <i class="bi bi-chevron-left"></i>
-                        </button>
-
-                        <!-- 照片轮播轨道 -->
-                        <div class="photo-carousel-track" id="photoCarouselTrack">
-                            <!-- 照片1 -->
-                            <div class="photo-carousel-slide active">
-                                <div class="photo-card">
-                                    <img src="assets/images/photo.jpg"
-                                         alt="入党答辩"
-                                         class="img-fluid rounded-3">
-                                    <div class="photo-caption">
-                                        <h5>入党答辩</h5>
-                                        <p><i class="bi bi-calendar me-1"></i>2025.09.20 · <i class="bi bi-geo-alt me-1"></i>南方科技大学</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 照片2 -->
-                            <div class="photo-carousel-slide">
-                                <div class="photo-card">
-                                    <img src="assets/images/photo2.jpg"
-                                         alt="吉林大学一日游"
-                                         class="img-fluid rounded-3">
-                                    <div class="photo-caption">
-                                        <h5>吉林大学一日游</h5>
-                                        <p><i class="bi bi-calendar me-1"></i>2025.10.04 · <i class="bi bi-geo-alt me-1"></i>吉林大学前卫南区</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 照片3 -->
-                            <div class="photo-carousel-slide">
-                                <div class="photo-card">
-                                    <img src="assets/images/photo3.jpg"
-                                         alt="东北师范大学附属中学七十五周年校庆"
-                                         class="img-fluid rounded-3">
-                                    <div class="photo-caption">
-                                        <h5>东北师范大学附属中学七十五周年校庆</h5>
-                                        <p><i class="bi bi-calendar me-1"></i>2025.10.07 · <i class="bi bi-geo-alt me-1"></i>东北师范大学附属中学自由校区</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 可以继续添加更多照片 -->
-                            <!-- 照片4 -->
-                            <div class="photo-carousel-slide">
-                                <div class="photo-card">
-                                    <img src="assets/images/photo4.jpg"
-                                         alt="南方科技大学招生宣讲学生分享"
-                                         class="img-fluid rounded-3">
-                                    <div class="photo-caption">
-                                        <h5>南方科技大学招生宣讲学生分享</h5>
-                                        <p><i class="bi bi-calendar me-1"></i>2025.04.20 · <i class="bi bi-geo-alt me-1"></i>长春市南湖宾馆</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 照片5 -->
-                            <div class="photo-carousel-slide">
-                                <div class="photo-card">
-                                    <img src="assets/images/photo5.jpg"
-                                         alt="南方科技大学第四期团校培训班学习成果展示"
-                                         class="img-fluid rounded-3">
-                                    <div class="photo-caption">
-                                        <h5>课外活动</h5>
-                                        <p><i class="bi bi-calendar me-1"></i>2025.05.21 · <i class="bi bi-geo-alt me-1"></i>南方科技大学会议中心</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 右箭头按钮 -->
-                        <button class="carousel-btn carousel-btn-next" onclick="moveSlide(1)">
-                            <i class="bi bi-chevron-right"></i>
-                        </button>
-
-                        <!-- 轮播指示器 -->
-                        <div class="carousel-indicators" id="carouselIndicators">
-                            <!-- 指示器会通过JavaScript动态生成 -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <style>
-            /* 照片轮播容器样式 */
-            .photo-carousel-container {
-                overflow: hidden;
-                padding: 0 50px;
-            }
-
-            .photo-carousel-track {
-                display: flex;
-                transition: transform 0.5s ease-in-out;
-                gap: 20px;
-            }
-
-            .photo-carousel-slide {
-                flex: 0 0 calc(33.333% - 14px); /* 每屏显示3张照片 */
-                min-width: 0;
-            }
-
-            /* 箭头按钮样式 */
-            .carousel-btn {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(255, 255, 255, 0.9);
-                border: none;
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.5rem;
-                color: #333;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                z-index: 20;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            }
-
-                .carousel-btn:hover {
-                    background: white;
-                    transform: translateY(-50%) scale(1.1);
-                    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-                }
-
-            .carousel-btn-prev {
-                left: 0;
-            }
-
-            .carousel-btn-next {
-                right: 0;
-            }
-
-            /* 照片卡片样式 */
-            .photo-card {
-                position: relative;
-                overflow: hidden;
-                border-radius: 0.75rem;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-                transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-                background: white;
-                cursor: pointer;
-            }
-
-                .photo-card:hover {
-                    transform: translateY(-12px) scale(1.03);
-                    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-                    z-index: 10;
-                }
-
-                .photo-card img {
-                    width: 100%;
-                    height: 280px;
-                    object-fit: cover;
-                    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-                }
-
-                .photo-card:hover img {
-                    transform: scale(1.15);
-                }
-
-            .photo-caption {
-                padding: 1.25rem;
-                background: white;
-                transition: all 0.3s ease;
-            }
-
-            .photo-card:hover .photo-caption {
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            }
-
-                .photo-card:hover .photo-caption h5 {
-                    color: white;
-                }
-
-                .photo-card:hover .photo-caption p {
-                    color: rgba(255,255,255,0.9);
-                }
-
-            .photo-caption h5 {
-                margin-bottom: 0.5rem;
-                color: #2c3e50;
-                font-weight: 600;
-                transition: color 0.3s ease;
-            }
-
-            .photo-caption p {
-                color: #7f8c8d;
-                font-size: 0.9rem;
-                margin-bottom: 0;
-                transition: color 0.3s ease;
-            }
-
-            /* 轮播指示器 */
-            .carousel-indicators {
-                display: flex;
-                justify-content: center;
-                gap: 8px;
-                margin-top: 20px;
-            }
-
-            .carousel-indicator {
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.5);
-                cursor: pointer;
-                transition: all 0.3s ease;
-            }
-
-                .carousel-indicator.active {
-                    background: white;
-                    transform: scale(1.2);
-                }
-
-            /* 标题样式 */
-            .latest-photo-subtitle {
-                color: white;
-                font-weight: bold;
-                margin-bottom: 2rem;
-                text-align: left;
-                font-size: 1.75rem; /* 增大字号以与前面保持一致 */
-            }
-
-            /* 响应式调整 */
-            @media (max-width: 768px) {
-                .photo-carousel-slide {
-                    flex: 0 0 calc(100% - 10px); /* 移动端每屏显示1张照片 */
-                }
-
-                .photo-carousel-container {
-                    padding: 0 40px;
-                }
-
-                .carousel-btn {
-                    width: 40px;
-                    height: 40px;
-                    font-size: 1.2rem;
-                }
-
-                .photo-card img {
-                    height: 220px;
-                }
-
-                .photo-caption {
-                    padding: 1rem;
-                }
-
-                .photo-card:hover {
-                    transform: translateY(-5px) scale(1.02);
-                }
-
-                    .photo-card:hover img {
-                        transform: scale(1.08);
-                    }
-
-                .latest-photo-subtitle {
-                    text-align: center;
-                }
-            }
-        </style>
-
-        <script>
-            let currentSlide = 0;
-            const slides = document.querySelectorAll('.photo-carousel-slide');
-            const totalSlides = slides.length;
-            const track = document.getElementById('photoCarouselTrack');
-            const indicatorsContainer = document.getElementById('carouselIndicators');
-
-            // 初始化指示器
-            function initIndicators() {
-                indicatorsContainer.innerHTML = '';
-                const totalPages = Math.ceil(totalSlides / 3); // 每页3张照片
-
-                for (let i = 0; i < totalPages; i++) {
-                    const indicator = document.createElement('div');
-                    indicator.className = `carousel-indicator ${i === 0 ? 'active' : ''}`;
-                    indicator.onclick = () => goToPage(i);
-                    indicatorsContainer.appendChild(indicator);
-                }
-            }
-
-            // 移动幻灯片
-            function moveSlide(direction) {
-                const slidesPerView = window.innerWidth <= 768 ? 1 : 3;
-                const maxSlide = Math.ceil(totalSlides / slidesPerView) - 1;
-
-                currentSlide += direction;
-
-                if (currentSlide < 0) {
-                    currentSlide = maxSlide;
-                } else if (currentSlide > maxSlide) {
-                    currentSlide = 0;
-                }
-
-                updateCarousel();
-            }
-
-            // 跳转到指定页面
-            function goToPage(page) {
-                const slidesPerView = window.innerWidth <= 768 ? 1 : 3;
-                currentSlide = page;
-                updateCarousel();
-            }
-
-            // 更新轮播显示
-            function updateCarousel() {
-                const slidesPerView = window.innerWidth <= 768 ? 1 : 3;
-                const slideWidth = 100 / slidesPerView;
-                const translateX = -currentSlide * 100;
-
-                track.style.transform = `translateX(${translateX}%)`;
-
-                // 更新指示器
-                const indicators = document.querySelectorAll('.carousel-indicator');
-                indicators.forEach((indicator, index) => {
-                    indicator.classList.toggle('active', index === currentSlide);
-                });
-            }
-
-            // 初始化
-            document.addEventListener('DOMContentLoaded', function () {
-                initIndicators();
-                updateCarousel();
-
-                // 响应窗口大小变化
-                window.addEventListener('resize', function () {
-                    currentSlide = 0;
-                    initIndicators();
-                    updateCarousel();
-                });
-            });
-        </script>
-        <!-- 最新本人照片板块 -->
-        <!-- Videos -->
-        <section class="bg-gradient-primary-to-secondary mt-5 mb-5" id="videos">
-            <div class="container px-5">
-                <header>
-                    <h2 class="videos-subtitle">
-                        <i class="bi bi-play-btn-fill"></i> PERFORMANCE VIDEOS
-                    </h2>
-                </header>
-                <div class="main-body" id="videos-md">
-                    <!-- 第一个表演视频 -->
-                    <div class="video-item">
-                        <span class="video-title">快板书 《孙悟空三打白骨精》</span>
-                        <!-- 假设这是视频的链接，例如YouTube, Bilibili, 或其他视频托管平台 -->
-                        <a href="https://www.bilibili.com/video/BV1CZ4FzoEce?vd_source=9a77864fe3751a28ee3e9ce731dcaf2f" class="video-btn" target="_blank">Play</a>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-        <!-- Videos -->
-        <!-- Footer-->
-        <footer class="bg-bottom text-center py-5">
-            <div class="container px-5">
-                <div class="text-white-50 small">
-                    <div id="copyright-text" class="mb-2"></div>
-                    <a id="github-link" href="https://github.com/senli1073">Github</a>
-                    <span class="mx-1">&middot;</span>
-                    <a id="license-link" href="https://github.com/senli1073/senli1073.github.io/blob/main/LICENSE">License</a>
-                </div>
-            </div>
-        </footer>
-
-    </body>
-
-    </html>
+    </section>
+    <!-- Social Works -->
     <!-- 最新本人照片板块 -->
     <section class="bg-gradient-primary-to-secondary mt-5 mb-5" id="latest-photo">
         <div class="container px-5">
@@ -847,7 +262,6 @@
                             </div>
                         </div>
 
-                        <!-- 可以继续添加更多照片 -->
                         <!-- 照片4 -->
                         <div class="photo-carousel-slide">
                             <div class="photo-card">
@@ -1030,6 +444,7 @@
             font-weight: bold;
             margin-bottom: 2rem;
             text-align: left;
+            font-size: 1.75rem; /* 增大字号以与前面保持一致 */
         }
 
         /* 响应式调整 */
@@ -1080,7 +495,8 @@
         // 初始化指示器
         function initIndicators() {
             indicatorsContainer.innerHTML = '';
-            const totalPages = Math.ceil(totalSlides / 3); // 每页3张照片
+            const slidesPerView = window.innerWidth <= 768 ? 1 : 3;
+            const totalPages = Math.ceil(totalSlides / slidesPerView);
 
             for (let i = 0; i < totalPages; i++) {
                 const indicator = document.createElement('div');
@@ -1108,7 +524,6 @@
 
         // 跳转到指定页面
         function goToPage(page) {
-            const slidesPerView = window.innerWidth <= 768 ? 1 : 3;
             currentSlide = page;
             updateCarousel();
         }
@@ -1116,9 +531,7 @@
         // 更新轮播显示
         function updateCarousel() {
             const slidesPerView = window.innerWidth <= 768 ? 1 : 3;
-            const slideWidth = 100 / slidesPerView;
             const translateX = -currentSlide * 100;
-
             track.style.transform = `translateX(${translateX}%)`;
 
             // 更新指示器
